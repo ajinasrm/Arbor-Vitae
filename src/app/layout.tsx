@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PageTransition from "@/components/ui/PageTransition";
 import CartSidebar from "@/components/layout/CartSidebar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -28,9 +29,11 @@ export default function RootLayout({
       )}>
         <Navbar />
         <CartSidebar />
-        <main className="flex-1">
-          {children}
-        </main>
+        <div className="flex-grow">
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </div>
         <Footer />
       </body>
     </html>
